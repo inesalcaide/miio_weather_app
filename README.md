@@ -6,6 +6,10 @@ This project contains different components:
 - **app.py** : File used to create the Flask API and that containing all the endpoints.
 - **load_database_data.py** : Script used to create and populate the MongoDB database (weather_db).
 ## How to run the project:
+### Via deployment script
+> bash deploy.sh
+
+### Via docker compose
 > docker compose build 
 
 > docker compose up
