@@ -1,0 +1,19 @@
+version: '3'
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb_weather_db
+    environment:
+      MONGO_INITDB_DATABASE: weather_db
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: 1234
+    ports:
+      - "27017:27017"
+
+  app:
+    build: ./server
+    depends_on:
+      - mongodb
+    ports:
+      - "5000:5000"
+
