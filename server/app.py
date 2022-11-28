@@ -34,7 +34,8 @@ def temperature():
         {"$match": {"city_name": city}},
         {"$project": {
             "_id": "$date",
-            "avg_tmp": {"$round": [{"$avg": ["$max_temp", "$min_temp"]}, 1]}}
+            "avg_tmp": {"$round": [{"$avg": ["$max_temp", "$min_temp"]}, 1]},
+            "tmp_unit": "$temp_unit"}
         },
         {"$sort": {"_id": 1}}
     ]
@@ -70,10 +71,12 @@ def wind():
         {"$match": {}},
         {"$group": {
             "_id": "$city_name",
-            "avg_wind": {"$avg": "$wind"}}
-        },
+            "w_unit": {"$first": "$wind_unit" },
+            "avg_wind": {"$avg": "$wind"}
+        }},
         {"$project": {
-            "rounded_avg_wind": {"$round": ["$avg_wind", 1]}
+            "rounded_avg_wind": {"$round": ["$avg_wind", 1]},
+            "wind_unit": "$w_unit"
         }},
         {"$sort": {"rounded_avg_wind": 1}},
         {"$limit": 10}
