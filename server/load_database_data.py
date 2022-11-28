@@ -15,7 +15,7 @@ CITIES_LIST = ["Aveiro", "Beja", "Braga", "Bragança", "Castelo Branco", "Coimbr
 
 
 cities_location_keys = []
-api_key = "3aFCmgPA87wAqA3AjDqtPf8ydOKOMkVo"
+api_key = "Tkub7Rjpn2vU3DQ9RHjteUmdsYpYmiTz"
 
 # Lookup cities location keys in API
 for city in CITIES_LIST:
